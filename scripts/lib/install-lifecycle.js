@@ -677,8 +677,13 @@ function buildDiscoveryRecord(adapter, context) {
 
 function discoverInstalledStates(options = {}) {
   const context = {
+<<<<<<< HEAD
     homeDir: options.homeDir || process.env.HOME || os.homedir(),
     projectRoot: options.projectRoot || process.cwd()
+=======
+    homeDir: options.homeDir || process.env.HOME || process.env.USERPROFILE || os.homedir(),
+    projectRoot: options.projectRoot || process.cwd(),
+>>>>>>> 8c635f6f (fix: resolve Windows Git Bash compatibility issues)
   };
   const targets = normalizeTargets(options.targets);
 
@@ -841,7 +846,7 @@ function buildDoctorReport(options = {}) {
   }).filter(record => record.exists);
   const context = {
     repoRoot,
-    homeDir: options.homeDir || process.env.HOME || os.homedir(),
+    homeDir: options.homeDir || process.env.HOME || process.env.USERPROFILE || os.homedir(),
     projectRoot: options.projectRoot || process.cwd(),
     manifestVersion: manifests.modulesVersion,
     packageVersion: readPackageVersion(repoRoot)
@@ -926,7 +931,7 @@ function repairInstalledStates(options = {}) {
   const manifests = loadInstallManifests({ repoRoot });
   const context = {
     repoRoot,
-    homeDir: options.homeDir || process.env.HOME || os.homedir(),
+    homeDir: options.homeDir || process.env.HOME || process.env.USERPROFILE || os.homedir(),
     projectRoot: options.projectRoot || process.cwd(),
     manifestVersion: manifests.modulesVersion,
     packageVersion: readPackageVersion(repoRoot)

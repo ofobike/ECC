@@ -419,7 +419,11 @@ async function main() {
 
     store = await createStateStore({
       dbPath: options.dbPath,
+<<<<<<< HEAD
       homeDir: process.env.HOME || os.homedir()
+=======
+      homeDir: process.env.HOME || process.env.USERPROFILE || os.homedir(),
+>>>>>>> 8c635f6f (fix: resolve Windows Git Bash compatibility issues)
     });
 
     if (options.command === 'list') {

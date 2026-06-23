@@ -19,7 +19,7 @@ function resolveStateStorePath(options = {}) {
     return path.resolve(options.dbPath);
   }
 
-  const homeDir = options.homeDir || process.env.HOME || os.homedir();
+  const homeDir = options.homeDir || process.env.HOME || process.env.USERPROFILE || os.homedir();
   return path.join(homeDir, DEFAULT_STATE_STORE_RELATIVE_PATH);
 }
 

@@ -28,7 +28,7 @@ const path = require('path');
 const { extractCommandSubstitutions, extractSubshellGroups, extractBraceGroups } = require('../lib/shell-substitution');
 
 // Session state — scoped per session to avoid cross-session races.
-const STATE_DIR = process.env.GATEGUARD_STATE_DIR || path.join(process.env.HOME || process.env.USERPROFILE || '/tmp', '.gateguard');
+const STATE_DIR = process.env.GATEGUARD_STATE_DIR || path.join(process.env.HOME || process.env.USERPROFILE || require('os').tmpdir(), '.gateguard');
 let activeStateFile = null;
 
 // State expires after 30 minutes of inactivity

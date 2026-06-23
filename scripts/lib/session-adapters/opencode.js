@@ -34,6 +34,9 @@ function resolveStorageDir(options = {}, context = {}) {
     return path.resolve(explicit);
   }
 
+  if (process.platform === 'win32') {
+    return path.join(process.env.LOCALAPPDATA || path.join(os.homedir(), 'AppData', 'Local'), 'opencode', 'storage');
+  }
   return path.join(os.homedir(), '.local', 'share', 'opencode', 'storage');
 }
 

@@ -71,7 +71,7 @@ function main() {
     }
 
     const records = discoverInstalledStates({
-      homeDir: process.env.HOME || os.homedir(),
+      homeDir: process.env.HOME || process.env.USERPROFILE || os.homedir(),
       projectRoot: process.cwd(),
       targets: options.targets,
     }).filter(record => record.exists);

@@ -439,7 +439,7 @@ async function main() {
 
     store = await createStateStore({
       dbPath: options.dbPath,
-      homeDir: process.env.HOME || os.homedir(),
+      homeDir: process.env.HOME || process.env.USERPROFILE || os.homedir(),
     });
 
     const payload = {

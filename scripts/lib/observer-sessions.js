@@ -22,6 +22,9 @@ function getHomunculusDir() {
     process.stderr.write(`[ecc] XDG_DATA_HOME=${xdgDataHome} is not absolute; ignoring\n`);
   }
 
+  if (process.platform === 'win32') {
+    return path.join(process.env.LOCALAPPDATA || path.join(os.homedir(), 'AppData', 'Local'), 'ecc-homunculus');
+  }
   return path.join(os.homedir(), '.local', 'share', 'ecc-homunculus');
 }
 
